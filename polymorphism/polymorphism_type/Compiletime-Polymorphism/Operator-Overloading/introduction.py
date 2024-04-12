@@ -1,6 +1,9 @@
 # Operator overloading is a programming technique that allows custom classes to redefine the behavior of built-in operators
 # (such as +, -, *, /, ==, !=, <, >, etc.) so that they work with objects of those classes.
 
+# Operator overloading is a powerful feature in many programming languages that allows you to redefine the behavior of operators,
+# such as +, -, *, /, and others, for user-defined types.
+
 # Operator Overloading for a class, and overloading operator work only of that class object.
 
 class Addplus:
