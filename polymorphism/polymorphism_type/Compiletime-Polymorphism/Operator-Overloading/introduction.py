@@ -22,3 +22,10 @@ c = Addplus(5)
 print(a+b)
 print(a+c)
 
+"""
+1. When a + b is executed, Python first checks whether the Addplus class (the class of a) has an __add__ method defined.
+2. If the __add__ method is defined in the Addplus class, Python will call a.__add__(b), using the logic you've provided in that method.
+3. If the __add__ method is not defined in the Addplus class (or its parent classes, if any), Python will attempt to use the default behavior. The default __add__ method in Python is not 
+   typically defined for custom objects unless explicitly provided, so if Addplus did not have an __add__ method, Python would raise a TypeError saying that the + operation is unsupported 
+   for Addplus instances.
+"""

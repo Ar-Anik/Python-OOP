@@ -4,6 +4,7 @@ Metadata about a module can be stored in special attributes like __author__, __v
 
 __author__ = "Aubdur Rob Anik"
 __version__ = "1.0"
+__python_version__ = "3.10"
 
 def greet(name):
     """Greets The Given Name."""

@@ -1,6 +1,6 @@
 # https://www.geeksforgeeks.org/encapsulation-in-python/
 
-'''
+"""
 Encapsulation in Python refers to the bundling of data (attributes) and methods (functions) that operate on the data into a single unit,
 typically known as a class. It allows you to control the visibility of the internal state of an object and restrict access to certain parts of the code.
 
@@ -19,9 +19,9 @@ In Python, encapsulation can be achieved using access modifiers such as:
             Conventionally, these are prefixed with a double underscore (__), and their names are mangled to include
             the class name to prevent accidental access from outside the class.
 
-'''
+"""
 
-'''
+"""
 What is mangling?
 
 In Python, when you define a variable or method within a class with double underscores as a prefix (e.g., __variable or __method()), 
@@ -38,7 +38,7 @@ This name mangling mechanism effectively makes it difficult for external code to
 However, it's worth noting that this mechanism does not make the variables or methods completely private, as they can still be accessed from outside 
 the class using the mangled name, although it's discouraged and not considered good practice.
 
-'''
+"""
 
 # Example of Name Mangling
 class Myclass:
@@ -50,15 +50,15 @@ class Myclass:
 
 obj = Myclass()
 
-'''
+"""
 It arise AttributeError: type object 'MyClass' has no attribute '__private_var'
 print(obj.__private_var)
-'''
+"""
 
-'''
+"""
 It arise AttributeError: type object 'MyClass' has no attribute '__private_method'
 obj.__private_method()
-'''
+"""
 
 # Accessing the private variable using the mangled name
 print(obj._Myclass__private_var)

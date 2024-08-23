@@ -1,10 +1,9 @@
 # Run-time -----> Overriding
 
-''' Runtime polymorphism is a fundamental concept in object-oriented programming (OOP) where the selection of a method to execute happens at runtime
- rather than at compile time. It enables a program to behave differently based on the actual type of object being operated upon. '''
-
-''' Runtime polymorphism is a fundamental concept in object-oriented programming (OOP) where the selection of a method to execute happens at runtime
-rather than at compile time. It enables a program to behave differently based on the actual type of object being operated upon. '''
+"""
+Runtime polymorphism is a fundamental concept in object-oriented programming (OOP) where the selection of a method to execute happens at runtime
+rather than at compile time. It enables a program to behave differently based on the actual type of object being operated upon.
+"""
 
 # Python is dynamically typed and supports both inheritance and method overriding, which are essential for achieving runtime polymorphism : -
 ''' Inheritance: Runtime polymorphism relies on inheritance. You have a superclass (or base class) and one or more subclasses (or derived classes).

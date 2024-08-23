@@ -1,22 +1,22 @@
-'''
+"""
 In Python, an abstract property is a property within a class that is declared but not implemented in that class.
 Instead, it must be implemented by any subclass derived from the class containing the abstract property.
 
 To create an abstract property, you typically use the @property decorator along with the @abstractmethod decorator from the abc module.
-'''
+"""
 
-'''
+"""
 1. An abstract property is a property declared in an abstract base class without an implementation.
 
 2. Concrete subclasses must provide an implementation for all abstract properties defined in their parent abstract base class.
 
 3. Abstract properties help enforce a consistent interface across subclasses and serve as a form of documentation.
-'''
+"""
 
-'''
+"""
 Abstract properties are commonly used to define a common interface or behavior that subclasses must follow. 
 They help enforce a contract between classes and facilitate polymorphism and code reuse in object-oriented programming.
-'''
+"""
 
 from abc import ABC, abstractmethod
 
@@ -82,6 +82,6 @@ circle = Circle(4)
 print("Area of Circle : ", circle.area)
 
 
-'''
+"""
 if i declare as a property in a abstract class then also use property decorator in subclass
-'''
+"""

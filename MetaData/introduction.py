@@ -53,3 +53,4 @@ import module_level_metadata
 
 print("Author : ", module_level_metadata.__author__)
 print("Version : ", module_level_metadata.__version__)
+print("Python Version : ", module_level_metadata.__python_version__)
