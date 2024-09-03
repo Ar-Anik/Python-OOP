@@ -11,18 +11,37 @@ Metaclasses are commonly used for:
 In Python, a metaclass is a class whose instances are classes. Essentially, a metaclass defines the behavior and structure of other classes.
 """
 
+"""
+To create our custom metaclass, our custom metaclass has to inherit type metaclass and usually override –
+1. __new__(): It’s a method which is called before __init__(). It creates the object and returns it. We can override this method to control how
+              the objects are created.
+2. __init__(): This method just initialize the created object passed as a parameter
+"""
+
 class MyMeta(type):
     def __new__(cls, name, bases, dct):
         # Add a new attribute to the class being created
         dct['author_name'] = "Aubdur Rob Anik"
 
+        def details_author():
+            print("He holds a B.Sc. degree in CSE")
+            print("His age is 14.")
+
+        dct['details_author'] = details_author
+
         # Create the class using the super metaclass (type)
+        """
+            By passing cls to super().__new__, you're instructing the Python interpreter to use MyMeta as the metaclass 
+            when creating the new class. This ensures that any custom behavior defined in MyMeta is properly applied during 
+            the class creation process.
+        """
         return super().__new__(cls, name, bases, dct)
 
 class TestMeta(metaclass=MyMeta):
     pass
 
 print(TestMeta.author_name)
+TestMeta.details_author()
 
 # type class
 """
@@ -36,7 +55,8 @@ MyMeta will be classes themselves, and they will have control over the creation 
 """
 1. Class Definition Parsing: Python starts parsing the class definition TestMeta.
 
-2. Collecting Class Attributes and Methods: Python collects all the attributes and methods defined in the class body and stores them in a dictionary (let's call it dct). In this case, dct is empty since there are no attributes or methods defined.
+2. Collecting Class Attributes and Methods: Python collects all the attributes and methods defined in the class body and stores them in a dictionary (let's call it dct). 
+                                            In this case, dct is empty since there are no attributes or methods defined.
 
 3. Metaclass Invocation:
     1. Python detects the metaclass=MyMeta argument in the class definition.
