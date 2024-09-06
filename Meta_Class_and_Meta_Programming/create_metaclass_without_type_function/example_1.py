@@ -7,8 +7,20 @@ Key Characteristics of the Singleton Pattern:
     2. Global Access Point: The single instance can be accessed globally, ensuring that there is a consistent point of access.
 """
 
+
+"""
+When you create an instance of a class, like this:
+    my_instance = MyClass()
+
+1. Python internally invokes the __call__() method of the metaclass of MyClass (which is type by default).
+2. The __call__() method is responsible for the creation of the instance by:
+    # Calling __new__(): The __call__() method first calls the __new__() method of the class to create a new instance.
+    # Calling __init__(): After the instance is created, the __call__() method then calls the __init__() method to initialize the instance.
+"""
+
 class SingletnMeta(type):
     _instances = {}
+    print("This is print.")
 
     def __call__(cls, *args, **kwargs):
         if cls not in cls._instances:
@@ -16,6 +28,33 @@ class SingletnMeta(type):
             cls._instances[cls] = instance
 
         return cls._instances[cls]
+
+"""
+1. SingletonBase is created using the SingletnMeta metaclass. The metaclass controls how the SingletonBase class itself (and any subclasses like A or B) is created.
+
+2. The __call__ method defined in SingletnMeta is invoked whenever you try to create an instance of A or B. This method ensures that the singleton instance for each 
+class is created only once and is reused for subsequent instantiations.
+"""
+
+"""
+1. Defining SingletnMeta:
+    # When the Python interpreter first encounters the definition of SingletnMeta, the code inside the metaclass body (such as the print("This is print.") statement) 
+      is executed immediately during the definition of the metaclass itself.
+    # This means "This is print." will be printed only once, at the time the metaclass SingletnMeta is defined.
+
+2. Creating SingletonBase with the Metaclass:
+    # When SingletonBase is defined as class SingletonBase(metaclass=SingletnMeta), the following happens:
+        The __new__ method of the metaclass is called (if defined). This is where the actual creation of the SingletonBase class object happens.
+        The __init__ method of the metaclass is called to initialize the SingletonBase class object.
+        
+    # Since SingletnMeta inherits from type, if you don't define __new__ or __init__ explicitly, the default behavior from type is used, which creates and initializes the class as usual.
+        
+    # At this stage, SingletonBase becomes a class that is governed by the SingletnMeta metaclass.
+    
+3. The __call__ method of SingletnMeta is NOT called at this point:
+    # The __call__ method in SingletnMeta will not be executed during the creation of SingletonBase. It will only be executed later when you try to instantiate objects of the subclasses (A or B).
+    # The __call__ method in SingletnMeta is responsible for intercepting object creation (A(10) or B(30)), and it will only be triggered during instance creation, not class definition.
+"""
 
 class SingletonBase(metaclass=SingletnMeta):
     pass
