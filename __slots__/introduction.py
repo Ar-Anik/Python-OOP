@@ -53,4 +53,4 @@ class WithSlots:
         self.age = age
 
 obj = WithSlots("Aubdur Rob Anik", 18)
-obj.location = "Bangldesh"      # This will raise an AttributeError, as 'location' is not allowed
+obj.location = "Bangladesh"      # This will raise an AttributeError, as 'location' is not allowed
