@@ -12,6 +12,6 @@ def calculate(x, y):
 def calculate(x, y):
     return x + " " + y
 
-print(calculate(2, 2));
-print(calculate(2.5, 4.0));
+print(calculate(2, 2))
+print(calculate(2.5, 4.0))
 print(calculate("Hello", "World"))
