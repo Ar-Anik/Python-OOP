@@ -40,6 +40,9 @@ class Engine:
     def start(self):
         return "Engine Started."
 
+    def stop(self):
+        return "Engine Stop."
+
 class Car:
     def __init__(self):
         self.engine = Engine()      # Composition: Car has-a Engine.
@@ -47,8 +50,27 @@ class Car:
     def start(self):
         return self.engine.start()
 
+    def stop(self):
+        return self.engine.stop()
+
+
 my_car = Car()
 print(my_car.start())
+print(my_car.stop())
+
+"""
+# Delegation in composition ? (Delegation is nothing but overall composition concept)
+----> delegation in composition is a design approach where an object hands off some of its responsibilities to another object. In other words, 
+instead of handling all functionality within one class, one class delegates certain tasks or methods to another "helper" class.
+
+
+----> When using composition with delegation, a class has an instance of another class (the "delegate") as one of its attributes and forwards 
+certain method calls to this delegate object. This helps in organizing code, promoting reuse, and separating concerns, as the delegated class 
+handles specific tasks, while the main class focuses on coordinating these tasks.
+
+`In the above example  Instead of Car managing engine operations directly, it delegates the work to Engine by calling start() and stop() on 
+self.engine. The Car class just provides a wrapper around these calls.`
+"""
 
 """
 Q : Different Between Inheritance and Composition ?
