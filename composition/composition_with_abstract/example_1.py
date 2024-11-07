@@ -1,5 +1,5 @@
 """
-Composition is a design principle where a class is composed of one or more objects of other classes, creating a "has-a" relationship.
+Composition is a design principle where a class is composed of one or more objects of other classes, creating a "part-of" relationship.
 When combined with abstract base classes, it provides a powerful way to create flexible and extensible code structures.
 """
 

@@ -5,7 +5,7 @@ Learning about composition in Python object-oriented programming:
     2. Composition vs inheritance
     3. Implementing composition in Python
     4. Benefits of composition
-    5. "Has-a" relationships
+    5. "part-of" relationships
     6. Aggregation vs composition
     7. Delegation in composition
     8. Dependency injection
@@ -26,14 +26,14 @@ Learning about composition in Python object-oriented programming:
 """
 Q : What is Composition?
 
-----> Composition is a key concept in Object-Oriented Programming (OOP) where one class contains another class as part of its attributes, which 
-allows for building complex types by combining objects. It's a way to model "has-a" relationships between objects. This is different from 
-inheritance, which models "is-a" relationships.
+----> Composition is a key concept in Object-Oriented Programming (OOP) where one class contains another class as part of its attributes, creating a 
+"part-of" relationship between them. It's a way to model "part-of" relationships between objects. This is different from inheritance, which models 
+"is-a" relationships.
 
-----> Composition is a design principle in object-oriented programming where a class is composed of one or more objects of other classes. Instead of 
-inheriting properties and methods from a parent class, a class can contain instances of other classes as attributes. This allows for greater flexibility 
-and modularity in code design, as it enables you to build complex objects by combining simpler ones. The main idea behind composition is "has-a" 
-relationship, as opposed to inheritance's "is-a" relationship. For example, a Car "has-a" Engine, rather than a Car "is-a" Engine.
+----> Composition is a design principle in object-oriented programming where a class is composed of one or more objects of other classes. Rather than 
+inheriting properties and methods from a parent class, a class can contain instances of other classes as attributes, creating a "part-of" relationship 
+where the components are essential parts of the main object. This enables flexibility and modularity in code design, allowing complex objects to be 
+built by combining simpler ones. For example, a Car is composed of an Engine, meaning that an engine is "part of" a car, rather than a Car "is-a" Engine.
 """
 
 class Engine:
@@ -45,7 +45,7 @@ class Engine:
 
 class Car:
     def __init__(self):
-        self.engine = Engine()      # Composition: Car has-a Engine.
+        self.engine = Engine()      # Composition: Engine is "part of" a Car.
 
     def start(self):
         return self.engine.start()
@@ -60,37 +60,44 @@ print(my_car.stop())
 
 """
 # Delegation in composition ? (Delegation is nothing but overall composition concept)
-----> delegation in composition is a design approach where an object hands off some of its responsibilities to another object. In other words, 
-instead of handling all functionality within one class, one class delegates certain tasks or methods to another "helper" class.
+----> Delegation in composition is a design approach where an object hands off some of its responsibilities to another object. Instead of managing 
+all functionalities within one class, a class delegates certain tasks or methods to another "helper" class (known as the delegate). This approach is 
+a key aspect of composition, where the main class does not perform all tasks directly but instead relies on another class to handle specific parts.
 
 
-----> When using composition with delegation, a class has an instance of another class (the "delegate") as one of its attributes and forwards 
-certain method calls to this delegate object. This helps in organizing code, promoting reuse, and separating concerns, as the delegated class 
-handles specific tasks, while the main class focuses on coordinating these tasks.
+----> When using composition with delegation, a class contains an instance of another class (the "delegate") as one of its attributes and forwards 
+certain method calls to this delegate object. This setup helps organize code, promote reuse, and separate concerns, as the delegated class handles 
+specific functionality while the main class focuses on coordinating overall behavior.
 
-`In the above example  Instead of Car managing engine operations directly, it delegates the work to Engine by calling start() and stop() on 
-self.engine. The Car class just provides a wrapper around these calls.`
+`In the above example, instead of Car managing engine operations directly, it delegates the work to the Engine class by calling start() and stop() 
+on self.engine. Here, the Car class does not contain the implementation for starting or stopping the engine itself. Instead, it provides a wrapper 
+around these calls, relying on the Engine class to perform the actual operations.
 """
 
 """
 Q : Different Between Inheritance and Composition ?
 
 Inheritance:
-    1. Represents an "is-a" relationship
-    2. A derived class inherits properties and methods from a base class
-    3. Creates a hierarchical structure of classes
+    1. Represents an "is-a" relationship (e.g., a Dog is a Animal).
+    2. A derived class inherits properties and methods from a base class, gaining its functionality and characteristics.
+    3. Creates a hierarchical structure of classes, where subclasses are strongly linked to their superclasses.
+    4. Useful when there is a need to extend or modify the behavior of an existing class in a clear hierarchy.
 
 Composition:
-    1. Represents a "has-a" relationship
-    2. One class contains an instance of another class as a member
-    3. Creates a modular structure where objects are composed of other objects
+    1. Represents a "part-of" relationship (a form of containment), where a class contains one or more instances of other classes as attributes. 
+       It often describes a "has-a" relationship (e.g., a Car has an Engine).
+    2. A class is composed of other classes, where it can include or remove specific components at runtime, allowing for flexibility and modularity.
+    3. Creates a modular structure by building complex objects from simpler ones, promoting separation of concerns.
+    4. Ideal when objects need to work together but do not need a hierarchical relationship.
 
 Key differences:
-    1. Inheritance creates tight coupling between classes, while composition allows for looser coupling
-    2. Inheritance is about extending functionality, while composition is about combining functionalities
-    3. With inheritance, subclasses depend on the implementation of their superclasses; with composition, classes depend only on the interfaces of their component objects
+    1. Coupling: Inheritance creates tight coupling between classes (subclasses depend on the superclass), while composition encourages looser 
+       coupling (objects can be changed independently).
+    2. Purpose: Inheritance is about extending functionality in a defined hierarchy, while composition is about combining functionalities in a 
+       flexible manner.
+    3. Dependency: With inheritance, subclasses depend on the specific implementation of their superclasses. In composition, classes rely only 
+       on the interfaces (or exposed methods) of their component objects, making it easier to swap components without breaking functionality.
 """
-
 
 """
 ====> Benefits of Composition:
