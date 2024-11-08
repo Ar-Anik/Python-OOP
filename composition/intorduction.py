@@ -1,3 +1,5 @@
+"""https://www.geeksforgeeks.org/python-oops-aggregation-and-composition/"""
+
 """
 Learning about composition in Python object-oriented programming:
 
@@ -34,6 +36,8 @@ Q : What is Composition?
 inheriting properties and methods from a parent class, a class can contain instances of other classes as attributes, creating a "part-of" relationship 
 where the components are essential parts of the main object. This enables flexibility and modularity in code design, allowing complex objects to be 
 built by combining simpler ones. For example, a Car is composed of an Engine, meaning that an engine is "part of" a car, rather than a Car "is-a" Engine.
+
+----> Composition is a type of Aggregation in which two entities are extremely reliant on one another.
 """
 
 class Engine:
