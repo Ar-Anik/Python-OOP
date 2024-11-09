@@ -15,7 +15,7 @@ and the descriptor is ignored. If the attribute isn’t in the instance’s __di
 
 """
 
-# Why Python First Checks the Class ?
+# Why does Python check the class first when accessing an attribute of an instance? ?
 -----> The class is checked first because descriptors are defined at the class level. Python cannot know if an attribute is a descriptor just by looking at the instance's 
 __dict__. This is why Python first looks at the class attributes to determine if the attribute is a descriptor and whether it's a data descriptor or non-data descriptor.
 
