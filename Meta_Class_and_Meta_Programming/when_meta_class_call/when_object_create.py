@@ -1,3 +1,5 @@
+"""Bellow is a Special Case."""
+
 """
 1. When an instance of the class is created, the metaclass controls how the class's __call__ method is invoked.
 2. This stage is triggered when you create an object of a class using the class name, like MyClass().
