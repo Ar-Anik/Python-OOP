@@ -34,7 +34,7 @@ bmp = AmphibiousVehicle("Soviet", "BMP-3", 12, 760)
 
 """
 it show TypeError: __init__() missing 1 required positional argument: 'max_speed' From the MRO, we see that the __init__ method of Car will be 
-called first, followed by the __init__ method of Boat. So, when create an instance of AmphibiousVehicle, both Car and Boat's __init__ methods will 
-be called. The Car class's __init__ method will initialize brand, model, and num_wheels, and then the Boat class's __init__ method will initialize 
-max_speed.
+called first. So, when create an instance of AmphibiousVehicle, both Car and Boat's __init__ methods will be called. The Car class's __init__ 
+method will initialize brand, model, and num_wheels, and then the Boat class's __init__ method will not initialize max_speed. 
+That why show error.
 """
